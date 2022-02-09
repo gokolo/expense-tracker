@@ -12,13 +12,11 @@ const DUMMY_EXPENSES = [
 
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-  // let [filteredExpenses, setFilteredExpenses] = useState(expenses);
 
   const addExpenseHandler = (expense) => {
     setExpenses(prevExpenses => {
       expense.date = new Date(expense.date);
       expense.id = prevExpenses.length + 1;
-      // setFilteredExpenses([expense, ...prevExpenses]);
       return [expense, ...prevExpenses];
     });
 
@@ -28,7 +26,6 @@ function App() {
     <div>
       <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       <Expenses expenses={expenses} />
-      {/* onFilterExpenses={filterExpensesHandler}  */}
     </div>
   );
 }
